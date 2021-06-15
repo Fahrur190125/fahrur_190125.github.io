@@ -1,0 +1,1091 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="MkDocs Material Boilerplate (Starter Kit) - Deploy documentation to hosting platforms (Netlify, GitHub Pages, GitLab Pages, and AWS Amplify Console) with Docker, pipenv, and GitHub Actions.">
+      
+      
+      
+        <meta name="author" content="peaceiris">
+      
+      
+        <link rel="canonical" href="https://mkdocs.peaceiris.com/index/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+    
+    
+      
+        <title>INTEGRASI NUMERIK - Komputasi Numerik</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.875de78c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="manifest" href="../manifest.json" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integrasi_numerik" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Komputasi Numerik" class="md-header__button md-logo" aria-label="Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Komputasi Numerik
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              											 INTEGRASI NUMERIK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Komputasi Numerik" class="md-nav__button md-logo" aria-label="Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Komputasi Numerik
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Integrasi Numerik
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SPL/" class="md-nav__link">
+        Solusi Numerik Sistem Persamaan Linear
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Differensial/" class="md-nav__link">
+        Solusi Numerik Persamaan Differensial Biasa
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a_definisi_integrasi_numerik" class="md-nav__link">
+    A. Definisi Integrasi Numerik
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b_metode_integrasi_numerik" class="md-nav__link">
+    B. Metode Integrasi Numerik
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Metode Integrasi Numerik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_metode_trapesium" class="md-nav__link">
+    1. Metode Trapesium
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_metode_simpson_13" class="md-nav__link">
+    2. Metode Simpson 1/3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_metode_simpson_38" class="md-nav__link">
+    3. Metode Simpson 3/8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_aturan_titik_tengah" class="md-nav__link">
+    4. Aturan Titik Tengah
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    Referensi
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/peaceiris/mkdocs-material-boilerplate/edit/master/docs_sample/index/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="integrasi_numerik">INTEGRASI NUMERIK<a class="headerlink" href="#integrasi_numerik" title="Permanent link">&para;</a></h1>
+<h3 id="a_definisi_integrasi_numerik">A. Definisi Integrasi Numerik<a class="headerlink" href="#a_definisi_integrasi_numerik" title="Permanent link">&para;</a></h3>
+<p>​   Integrasi numerik merupakan metode penyelesaian integral yang digunakan oleh ilmuwan agar memperoleh jawaban aproksimasi dari integral yang tidak dapat diselesaikan secara analitik yang didasarkan  pada perhitungan perkiraan.<sup id="fnref:a"><a class="footnote-ref" href="#fn:a">1</a></sup> Dari pengertian tersebut dapat disimpulkan bahwa integrasi numerik dapat dilakukan apabila :</p>
+<ol>
+<li>Integral sulit/tidak dapat diselesaikan secara analitik,</li>
+<li>Fungsi yang diintegralkan yang diberikan berbentuk angka/tabel.<sup id="fnref6:b"><a class="footnote-ref" href="#fn:b">2</a></sup></li>
+</ol>
+<p>​   Metode numerik dilakukan untuk mencoba lebih cepat dan lebih mendekati jawaban eksak dengan cara melakukan penintegralan pada bagian - bagian kecil. Dalam kalkulus perhitungan integral adalah perhitungan dasar yang digunakan dalam banyak hal. Perhitungan dilakukan dengan cara membagi luasan dalam beberapa pias kecil yang dibatasi oleh fungsi <script type="math/tex">y = f(x)</script> dan sumbu <script type="math/tex">x</script>. Kemudian luas totalnya adalah jumlah dari luas semua pias.<sup id="fnref2:a"><a class="footnote-ref" href="#fn:a">1</a></sup></p>
+<p>​   Secara umum integral fungsi <script type="math/tex">y(x)</script> dapat dinyatakan sebagai berikut.
+<script type="math/tex; mode=display">
+I = \int^{b}_{x=a} y(x) dx
+</script>
+​   Persamaan diatas dapat diartikan sebagai integral dari fungsi <script type="math/tex">y(x)</script> terhadap peubah bebas <script type="math/tex">x</script> yang dievaluasi mulai dari <script type="math/tex">x = a</script> hingga <script type="math/tex">x = b</script>. Pendekatan numerik terhadap persamaan integral tersebut dapat dinyatakan sebagai berikut.<sup id="fnref:c"><a class="footnote-ref" href="#fn:c">3</a></sup>
+<script type="math/tex; mode=display">
+I = \sum ^{N}_{i=1}w_{i}y\left( x_{i}\right)
+</script>
+​   Dengan <em>N</em> menyatakan jumlah segmen,  <script type="math/tex">y(x_{i}) = y(a)</script> dan <script type="math/tex">y(x_{n}) = y(b)</script>. Pendekatan numerik pada integral diatas merupakan penjumlahan dari deret suku-suku dengan titik-titik <script type="math/tex">x_{i}</script> yang terbentang dari <script type="math/tex">x = a</script> hingga <script type="math/tex">x = b</script> dan di setiap titik <script type="math/tex">x_{i}</script> dievaluasi menjadi fungsi <script type="math/tex">y(x)</script>.  Faktor <script type="math/tex">x_{i}</script> ini biasanya disebut sebagai titik simpul (<em>node</em>). sedangkan faktor pengali <script type="math/tex">w_{i}</script> disebut faktor bobot.<sup id="fnref2:c"><a class="footnote-ref" href="#fn:c">3</a></sup></p>
+<p><img alt="" src="https://fahrur190125.github.io/img/Integrasi Numerik.png" /></p>
+<h3 id="b_metode_integrasi_numerik">B. Metode Integrasi Numerik<a class="headerlink" href="#b_metode_integrasi_numerik" title="Permanent link">&para;</a></h3>
+<p>​   Untuk menyelesaikan integrasi numerik terdapat beberapa metode diantaranya sebagai berikut.</p>
+<h4 id="1_metode_trapesium">1. Metode Trapesium<a class="headerlink" href="#1_metode_trapesium" title="Permanent link">&para;</a></h4>
+<p>​   Sesuai dengan namanya metode trapesium merupakan metode integrasi numerik yang didasarkan pada penjumlahan pias/segmen berbentuk trapesium<sup id="fnref3:c"><a class="footnote-ref" href="#fn:c">3</a></sup>. Dalam metode ini grafik lengkung dari fungsi <script type="math/tex">f(x)</script> digantikan oleh garis lurus. Luasan bidang di bawah fungsi <script type="math/tex">f(x)</script> antara <script type="math/tex">x = a</script> hingga <script type="math/tex">x = b</script> pada gambar di bawah didekati oleh luas trapesium di bawah garis lurus yang menghubungkan <script type="math/tex">f(a)</script> dan <script type="math/tex">f(b)</script>. <sup id="fnref:b"><a class="footnote-ref" href="#fn:b">2</a></sup></p>
+<p><img alt="Metode Trapesium 1 Pias" src="https://fahrur190125.github.io/img/Metode Trapesium.png" /></p>
+<p>​   Penggunaan garis lurus untuk mendekati grafik lengkung ini menyebabkan terjadinya kesalahan sebesar luasan yang tidak diarsir<sup id="fnref2:b"><a class="footnote-ref" href="#fn:b">2</a></sup>. Apabila sebuah integral diselesaikan dengan menggunakan metode trapesium satu segmen saja, maka dapat dituliskan sebagai berikut.
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx =I= \dfrac{b-a}{2}[f(a) + f(b)]
+</script>
+<strong>Keterangan :</strong></p>
+<p>
+<script type="math/tex">I</script> =<em>Hasil pengintegralan</em></p>
+<p>
+<script type="math/tex">f(x)</script> = <em>Fungsi yang diintegralkan</em></p>
+<p>
+<script type="math/tex">a</script> = <em>Batas atas integral</em></p>
+<p>
+<script type="math/tex">b</script> = <em>Batas bawah integral</em></p>
+<p>Untuk lebih jelasnya perhatikan contoh berikut.</p>
+<p>Tentukan nilai aproksimasi integral dari fungsi f(x) = <script type="math/tex">4x^{3}</script> dari <script type="math/tex">x</script> = 0 hingga <script type="math/tex">x</script> = 4 dengan menggunakan metode trapesium.</p>
+<p>jawab:</p>
+<p>Jika dikerjakan secara analitik, maka hasilnya sebagai berikut.
+<script type="math/tex; mode=display">
+\int^{4}_{0} 4x^{3} dx = x^{4}I^{4}_{0}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+= 4^{4} - 4^{0}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+= 256 - 0 = 256
+</script>
+</p>
+<p>Sedangkan jika dikerjakan dengan menggunakan metode trapesium hasilnya sebagai berikut.
+<script type="math/tex; mode=display">
+\int^{4}_{0} 4x^{3} dx = \dfrac{4-0}{2}[4\times0^{3} + 4\times4^{3}]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+=2[4\times0 + 4\times64]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+= 2[0 + 256] = 512
+</script>
+</p>
+<p>Dari hasil yang didapatkan dari metode trapesium didapatkan <em>eror</em> yang sangat besar yaitu sebagai berikut.
+<script type="math/tex; mode=display">
+e = \dfrac{256-512}{256} \times 100 =  -100
+</script>
+Untuk mengurangi nilai kesalahan (<em>eror</em>) tersebut, maka kurva lengkung didekati oleh sejumlah garis lurus , sehingga terbentuk banyak pias yang dideskripsikan pada gambar berikut. <sup id="fnref3:b"><a class="footnote-ref" href="#fn:b">2</a></sup></p>
+<p><img alt="Metode Trapesium Banyak Pias" src="https://fahrur190125.github.io/img/Trapesium pias.png" /></p>
+<p>Maka integral totalnya dapat ditulis dalam bentuk :
+<script type="math/tex; mode=display">
+\int^{x1}_{x0}f(x)dx + \int^{x2}_{x1}f(x)dx+...+\int^{xn}_{n-1}f(x)dx
+</script>
+Apabila terdapat n pias, berarti panjang setiap pias adalah :
+<script type="math/tex; mode=display">
+\Delta x = \dfrac{a-b}{n}
+</script>
+Sehingga didapat persamaan sebagai berikut :
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx  = \dfrac{\Delta x}{2}[f(x_{1})+f(x_{0})] + \dfrac{\Delta x}{2}[f(x_{2})+f(x_{1})]++...+\dfrac{\Delta x}{2}[f(x_{n})+f(x_{n-1})]
+</script>
+atau
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx =I =\dfrac{\Delta x}{2}[f(b)+f(a)+2\sum ^{n-1}_{i=1}f(x_{i})]
+</script>
+<strong>Keterangan :</strong></p>
+<p>
+<script type="math/tex">I</script> =<em>Hasil pengintegralan</em></p>
+<p>
+<script type="math/tex">f(x)</script> = <em>Fungsi yang diintegralkan</em></p>
+<p>
+<script type="math/tex">a</script> = <em>Batas atas integral</em></p>
+<p>
+<script type="math/tex">b</script> = <em>Batas bawah integral</em></p>
+<p><em><script type="math/tex"> \Delta x </script>= Panjang setiap pias/segmen</em></p>
+<p>
+<script type="math/tex">n</script> = <em>Banyak pias/segmen</em></p>
+<p>Untuk lebih jelasnya perhatikan contoh berikut.</p>
+<p>Tentukan nilai aproksimasi integral dari fungsi <script type="math/tex">f(x) = 4x^{3}</script>  dari <script type="math/tex">x</script> = 0 hingga <script type="math/tex">x</script> = 4 dengan menggunakan metode trapesium empat pias.</p>
+<p>jawab:</p>
+<p>Dari soal diperoleh a = 0, b = 4 dan n = 4, maka panjang pias :
+<script type="math/tex; mode=display">
+\Delta x = \dfrac {4-0}{4} = 1
+</script>
+Sehingga nilai I :
+<script type="math/tex; mode=display">
+I =\dfrac{1}{2}[(4 \times 0^{3})+(4\times4^{3})+2((4\times1^{3})+(4\times2^{3})+4\times3^{3})]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{2}[0+256+2(4+32+108)]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{2}[256+2(144)]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{2}[256+288]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{2}[544]=272
+</script>
+</p>
+<p>Dari hasil yang didapatkan nilai erornya semakin kecil yaitu :
+<script type="math/tex; mode=display">
+e = \dfrac{256-272}{256} \times 100\% =  -6,25\%
+</script>
+Dari sini dapat ditarik kesimpulan bahwa di dalam metode trapesium semakin banyak pias maka nilai kesalahan (<em>eror</em>) yang didapat semakin kecil.  Dan algoritma program dari untuk metode trapesium dapat dinyatakan sebagai berikut.</p>
+<ol>
+<li>Mendefinisikan fungsi yang akan diintegrasikan,</li>
+<li>Menentukan batas atas <script type="math/tex">a</script> dan batas bawah <script type="math/tex">b</script>,</li>
+<li>Menginputkan banyaknya iterasi (pias/segmen) yaitu <script type="math/tex">n</script>,</li>
+<li>Menghitung lebar segmen/pias yaitu <script type="math/tex">h =(b-a)/n</script>,</li>
+<li>Deklarasi nilai  awal  <script type="math/tex">x = 0 </script> dan <script type="math/tex">sigma = 0</script>,</li>
+<li>Update nilai <script type="math/tex">x = x + h</script> setiap melakukan perulangan</li>
+<li>Mengupdate nilai <script type="math/tex">sigma</script> dimulai  dari <script type="math/tex">n = 1</script> sampai <script type="math/tex">n = n - 1</script>,</li>
+<li>Menghitung nilai <script type="math/tex">I</script> dengan menjumlahkan nilai <script type="math/tex">sigma</script> dari <script type="math/tex">n = 1</script> sampai <script type="math/tex">n = n -1</script> dengan nilai <script type="math/tex">f(a)</script> dan <script type="math/tex">f(b)</script>,</li>
+<li>Cetak hasil perhitungannya.</li>
+</ol>
+<p>Kemudian implementasi dari algoritma tersebut sebagai berikut.<sup id="fnref:d"><a class="footnote-ref" href="#fn:d">4</a></sup></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1">#deklarasi fungsi</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="c1">#nilai fungsi</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="n">true</span> <span class="o">=</span> <span class="mi">256</span> <span class="c1">#nilai analitik</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">#batas atas</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#batas bawah</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan banyak iterasi : &quot;</span><span class="p">))</span> <span class="c1">#inputkan banyak iterasi(segmen/pias)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1">#hitung lebar segmen/pias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">b</span> <span class="c1">#inisialisasi awal nilai x</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#inisialisasi awal nilai sigma</span>
+<span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="c1">#menghitung nilai I</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE TRAPESIUM -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;|iterasi|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai xi&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai f(xi)&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai I&#39;&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai eror|&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span> <span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">h</span> <span class="c1">#nilai x diupdate</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#nilai I dari n=1 hingga n=n-1</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="c1">#menghitung nilai I</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai keseluruhan</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil integral numerik dari METODE TRAPESIUM ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">)</span> <span class="c1">#menampilkan nilai I</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Dan nilai eror yang dihasilkan dari METODE TRAPESIUM ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai eror</span>
+</code></pre></div>
+
+<p>Dan hasil dari source code program tersebut sebagai berikut.</p>
+<div class="codehilite"><pre><span></span><code>Masukkan banyak iterasi : 4
+===========================================================================
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE TRAPESIUM -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+===========================================================================
+|iterasi| nilai xi  | nilai f(xi)   | nilai I       | nilai eror|
+|1      | 0.000000  | 256.000000    | 128.000000    | 50.000000|
+|2      | 1.000000  | 4.000000      | 132.000000    | 48.437500|
+|3      | 2.000000  | 32.000000     | 164.000000    | 35.937500|
+|4      | 3.000000  | 108.000000    | 272.000000    | -6.250000|
+===========================================================================
+Hasil integral numerik dari METODE TRAPESIUM ialah : 272.000000
+Dan nilai eror yang dihasilkan dari METODE TRAPESIUM ialah : -6.250000
+</code></pre></div>
+
+<h4 id="2_metode_simpson_13">2. Metode Simpson 1/3<a class="headerlink" href="#2_metode_simpson_13" title="Permanent link">&para;</a></h4>
+<p>​   Metode simpson 1/3 merupakan metode integrasi numerik yang dilakukan dengan menggunakan polinomial orde 2, yang melalui 3 titik data agar memperoleh ketelitian yang lebih tinggi.Metode simpson 1/3 memerlukan langkah yang genap untuk menerapkan metodenya.Dengan kata lain, jumlah langkah untuk metode Simpson 1/3 harus dapat dibagi dengan 2.<sup id="fnref4:c"><a class="footnote-ref" href="#fn:c">3</a></sup> Metode simpson 1/3 dideskripsikan oleh gambar berikut.</p>
+<p><img alt="Metode 1/3 Simpson 1 Pias" src="https://fahrur190125.github.io/img/sepertigasimpson.png" /></p>
+<p>Persamaan metode simpson 1/3 dengan 1 segmen dapat dituliskan sebagai berikut.
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx= \dfrac{\Delta x}{3}[f(a) + 4f(c) + f(b)]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+I = \dfrac{b-a}{6}[f(a) + 4f(c) + f(b)]
+</script>
+</p>
+<p><strong>Keterangan :</strong> </p>
+<p>
+<script type="math/tex">I</script> =<em>Hasil pengintegralan</em></p>
+<p>
+<script type="math/tex">f(x)</script> = <em>Fungsi yang diintegralkan</em></p>
+<p>
+<script type="math/tex">a</script> = <em>Batas atas integral</em></p>
+<p>
+<script type="math/tex">b</script> = <em>Batas bawah integral</em></p>
+<p>
+<script type="math/tex">c</script> = <em>Nilai tengah (b-a/2)</em></p>
+<p>Untuk lebih jelasnya selesaikan contoh berikut.</p>
+<p>Tentukan nilai aproksimasi integral dari fungsi <script type="math/tex">f(x) = 4x^{3}</script> dari <script type="math/tex">x</script> = 0 hingga <script type="math/tex">x</script> = 4 dengan menggunakan metode simpson1/3.</p>
+<p>jawab : 
+<script type="math/tex; mode=display">
+I = \dfrac{4-0}{6}[4\times0^{3}+4(4\times2^{3})+4\times4^{3}]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+=\dfrac{4}{6}[0+4(32)+4\times64]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+=\dfrac{4}{6}[0+128+256]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+=\dfrac{4}{6}[384]=256
+</script>
+</p>
+<p>Untuk eror yang dihasilkan dari metode simpson 1/3 yaitu sebagai berikut.
+<script type="math/tex; mode=display">
+e = \dfrac{256-256}{256} \times 100\% =  0\%
+</script>
+Sama halnya dengan metode trapesium, metode simpson1/3 juga dapat menggunakan banyak segmen/pias yang dideskripsikan pada gambar berikut.<sup id="fnref4:b"><a class="footnote-ref" href="#fn:b">2</a></sup></p>
+<p><img alt="Metode 1/3 Simpson Banyak Pias" src="https://fahrur190125.github.io/img/sepertigasimpsonBanyakpias.png" /></p>
+<p>Metode simpson 1/3 banyak pias dapat dinyatakan sebagai berikut.
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx= I = \dfrac{\Delta x}{3}[f(a)+f(b)+4\sum^{n-1}_{i=1,3,5}f(x_{i})+2\sum^{n-2}_{i=2,3,6}f(x_{i})]
+</script>
+<strong>Keterangan :</strong></p>
+<p>
+<script type="math/tex">I</script> =<em>Hasil pengintegralan</em></p>
+<p>
+<script type="math/tex">f(x)</script> = <em>Fungsi yang diintegralkan</em></p>
+<p>
+<script type="math/tex">a</script> = <em>Batas atas integral</em></p>
+<p>
+<script type="math/tex">b</script> = <em>Batas bawah integral</em></p>
+<p>
+<script type="math/tex">n</script> = <em>Banyak pias/segmen</em></p>
+<p>Untuk lebih jelasnya perhatikan contoh berikut.</p>
+<p>Tentukan nilai aproksimasi integral dari fungsi <script type="math/tex">f(x) = 4x^{3}</script>  dari <script type="math/tex">x</script> = 0 hingga <script type="math/tex">x</script> = 4 dengan menggunakan metode simpson 1/3 empat pias.</p>
+<p>jawab:</p>
+<p>Dengan menggunakan metode simpson 1/3 diperoleh
+<script type="math/tex; mode=display">
+I = \dfrac{1}{3}[4\times0^{3}+4\times4^{3}+4((4\times1^{3})+(4\times3^{3}))+2(4\times2^{3})]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{3}[0+256+4(4+108)+2(32)]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{3}[256+4(112)+64]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{3}[256+448+64]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{3}[768]=256
+</script>
+</p>
+<p>Untuk eror yang dihasilkan dari metode simpson 1/3 dengan 4 segmen/pias yaitu sebagai berikut.
+<script type="math/tex; mode=display">
+e = \dfrac{256-256}{256} \times 100\% =  0\%
+</script>
+Algoritma program untuk metode simpson 1/3 dinyatakan sebagai berikut.</p>
+<ol>
+<li>Mendefinisikan fungsi yang akan diintegrasikan,</li>
+<li>Menentukan batas atas <script type="math/tex">a</script> dan batas bawah <script type="math/tex">b</script>,</li>
+<li>Menginputkan banyaknya iterasi (pias/segmen) yaitu <script type="math/tex">n</script>,</li>
+<li>Menghitung lebar segmen/pias yaitu <script type="math/tex">h =(b-a)/n</script>,</li>
+<li>Deklarasi nilai awal <script type="math/tex">x = 0 </script>dan <script type="math/tex">sigma = 0</script>,</li>
+<li>Update nilai <script type="math/tex">x = x + h</script> setiap melakukan perulangan</li>
+<li>Mengupdate nilai <script type="math/tex">sigma</script> mulai dari <script type="math/tex">n = 1</script> hingga <script type="math/tex">n = n -1</script> dengan ketentuan :<ul>
+<li>Jika i = ganjil maka <script type="math/tex">sigma = sigma + 4 \times f(x)</script>
+</li>
+<li>jika i = genap maka <script type="math/tex">sigma = sigma + 2 \times f(x)</script>
+</li>
+</ul>
+</li>
+<li>Menghitung nilai <script type="math/tex">I</script> dengan menjumlahkan nilai <script type="math/tex">sigma</script> dari <script type="math/tex">n = 1</script> sampai <script type="math/tex">n = n -1</script> dengan nilai <script type="math/tex">f(a)</script> dan <script type="math/tex">f(b)</script>,</li>
+<li>Cetak hasil perhitungannya.</li>
+</ol>
+<p>Dan implementasi dari algoritma tersebut terangkum dalam source code berikut.<sup id="fnref:e"><a class="footnote-ref" href="#fn:e">5</a></sup></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1">#deklarasi fungsi</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="c1">#nilai fungsi</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="n">true</span> <span class="o">=</span> <span class="mi">256</span> <span class="c1">#nilai analitik</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">#batas atas</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#batas bawah</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan banyak iterasi : &quot;</span><span class="p">))</span> <span class="c1">#inputkan banyak iterasi(segmen/pias)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1">#hitung lebar segmen/pias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">b</span> <span class="c1">#inisialisasi awal nilai x</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#inisialisasi awal nilai sigma</span>
+<span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1">#menghitung nilai I</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE 1/3 RAMPSON -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;|iterasi|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai xi&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai f(xi)&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai I&#39;&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai eror|&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">h</span> <span class="c1">#update nilai x</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1">#kondisi jika ganjil</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#update nilai sigma 4*f(x)</span>
+    <span class="k">else</span> <span class="p">:</span> <span class="c1">#kondisi jika genap</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#update nilai sigma 2*f(x)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1">#menghitung nilai I</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai keseluruhan</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil integral numerik dari METODE SIMPSON 1/3 ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">)</span> <span class="c1">#menampilkan nilai I</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Dan nilai eror yang dihasilkan dari METODE SIMPSON 1/3 ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai eror</span>
+</code></pre></div>
+
+<p>Dan hasil output dari source code tersebut ialah sebagai berikut.</p>
+<div class="codehilite"><pre><span></span><code>Masukkan banyak iterasi : 4
+===========================================================================
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE 1/3 RAMPSON -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+===========================================================================
+|iterasi| nilai xi  | nilai f(xi)   | nilai I       | nilai eror|
+|1      | 0.000000  | 0.000000      | 85.333333     | 66.666667|
+|2      | 1.000000  | 4.000000      | 90.666667     | 64.583333|
+|3      | 2.000000  | 32.000000     | 112.000000    | 56.250000|
+|4      | 3.000000  | 108.000000    | 256.000000    | 0.000000|
+===========================================================================
+Hasil integral numerik dari METODE SIMPSON 1/3 ialah : 256.000000
+Dan nilai eror yang dihasilkan dari METODE SIMPSON 1/3 ialah : 0.000000
+</code></pre></div>
+
+<h4 id="3_metode_simpson_38">3. Metode Simpson 3/8<a class="headerlink" href="#3_metode_simpson_38" title="Permanent link">&para;</a></h4>
+<p>​   Metode simpson3/8 merupakan metode integrasi numerik yang dilakukan dengan menggunakan polinomial orde 3, yang melalui 4 titik data<sup id="fnref5:b"><a class="footnote-ref" href="#fn:b">2</a></sup> Lain halnya dengan metode Simpson 1/3, metode simpson 3/8 tidak mensyaratkan jumlah langkah yang genap ataupun ganjil melainkan mensyaratkan jumlah langkah yang dapat dibagi dengan 3. Ungkapan metode Simpson 3/8 untuk 3 segmen dinyatakan sebagai berikut.<sup id="fnref5:c"><a class="footnote-ref" href="#fn:c">3</a></sup></p>
+<p><img alt="Metode Simpson 3/8" src="https://fahrur190125.github.io/img/Metode tigaperlapan simpson.png" />
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx=I = \dfrac{3\Delta x}{8}[f(x_{0})+3f(x_{1})+3f(x_{2})+f(x_{3})]
+</script>
+atau 
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx=I = {3\Delta x}\dfrac{[f(x_{0})+3f(x_{1})+3f(x_{2})+f(x_{3})]}{8}
+</script>
+<strong>Keterangan :</strong></p>
+<p>
+<script type="math/tex">I</script> =<em>Hasil pengintegralan</em></p>
+<p>
+<script type="math/tex">f(x)</script> = <em>Fungsi yang diintegralkan</em></p>
+<p>
+<script type="math/tex">a</script> = <em>Batas atas integral</em></p>
+<p>
+<script type="math/tex">b</script> = <em>Batas bawah integral</em></p>
+<p><em><script type="math/tex"> \Delta x </script>= Panjang setiap pias/segmen</em></p>
+<p>Contoh:</p>
+<p>Tentukan nilai aproksimasi integral dari fungsi <script type="math/tex">f(x) = 4x^{3}</script> dari x = 0 hingga x = 4 dengan menggunakan metode simpson 3/8.</p>
+<p>jawab:</p>
+<p>Dengan menggunakan metode simpson 3/8 diperoleh
+<script type="math/tex; mode=display">
+I = (4-0)\dfrac{[4\times0^{3}+3(4\times1,3333^{3})+3(4\times2,6666^{3})+4\times4^{3}]}{8}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+4\dfrac{[0+3(4\times2,37)+3(4\times18,96)+4\times64]}{8}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+4\dfrac{[3(9,48)+3(75,85)+4\times64]}{8}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+4\dfrac{[28,4+227,6+256]}{8}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+4\dfrac{[512]}{8} = 256
+</script>
+</p>
+<p>Dari hasil tersebut diperoleh nilai eror
+<script type="math/tex; mode=display">
+e = \dfrac{256-256}{256} \times 100\% =  0\%
+</script>
+Sedangkan untuk metode simpson 3/8 banyak segmen/pias dapat didefinisikan sebagai berikut.
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x) dx=I = \dfrac{3\times h}{8}[f(a)+3\sum^{n-1}_{i=1}f(x_{i})+2\sum^{n-3}_{i=3,6,9,...}f(x_{i}) + f(b)]
+</script>
+<strong>Keterangan :</strong></p>
+<p>
+<script type="math/tex">I</script> =<em>Hasil pengintegralan</em></p>
+<p>
+<script type="math/tex">f(x)</script> = <em>Fungsi yang diintegralkan</em></p>
+<p>
+<script type="math/tex">a</script> = <em>Batas atas integral</em></p>
+<p>
+<script type="math/tex">b</script> = <em>Batas bawah integral</em></p>
+<p>
+<script type="math/tex">h</script> = <em>Panjang setiap pias/segmen</em></p>
+<p>
+<script type="math/tex">n</script> = <em>Banyak pias/segmen</em></p>
+<p>Contoh:</p>
+<p>Tentukan nilai aproksimasi integral dari fungsi <script type="math/tex">f(x) = 4x^{3}</script> dari <script type="math/tex">x</script> = 0 hingga <script type="math/tex">x</script> = 4 dengan menggunakan metode simpson 3/8 6 pias.</p>
+<p>Jawab:
+<script type="math/tex; mode=display">
+I = \dfrac{3\times0,67}{8}[4\times0^{3}+3(4\times0,67^{3})+3(4\times1,33^{3})+2(4\times2^{3})+3(4\times2,67^{3})
++3(4\times3,33^{3})+4\times4^{3}]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{2}{8}[0+3(4\times0,296)+3(4\times2,37)+2(4\times8)+3(4\times18,96)+3(4\times37,037)+4\times64]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{4}[0+3(1,185)+3(9,481)+2(32)+3(75,85)+3(148,128)+256]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{4}[0+3,55+28,44+64+227,55+444,384+256]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{1}{4}[1024] = 256
+</script>
+</p>
+<p>Dari hasil tersebut diperoleh nilai eror
+<script type="math/tex; mode=display">
+e = \dfrac{256-256}{256} \times 100\% =  0\%
+</script>
+Berikut ini merupakan algoritma program metode simpson 3/8</p>
+<ol>
+<li>Mendefinisikan fungsi yang akan diintegrasikan,</li>
+<li>Menentukan batas atas <script type="math/tex">a</script> dan batas bawah <script type="math/tex">b</script>,</li>
+<li>Menginputkan banyaknya iterasi (pias/segmen) yaitu <script type="math/tex">n</script>,</li>
+<li>Menghitung lebar segmen/pias yaitu <script type="math/tex">h =(b-a)/n</script>,</li>
+<li>Deklarasi nilai  awal <script type="math/tex">x = 0</script> dan <script type="math/tex">sigma = 0</script>,</li>
+<li>Update nilai <script type="math/tex">x = x + h</script> setiap melakukan perulangan</li>
+<li>Mengupdate nilai <script type="math/tex">sigma</script> mulai dari <script type="math/tex">n = 1</script> hingga <script type="math/tex">n = n -1</script> dengan ketentuan :<ul>
+<li>Jika i habis dibagi 3 maka <script type="math/tex">sigma = sigma + 2 \times f(x) </script>
+</li>
+<li>Jika tidak maka <script type="math/tex">sigma = sigma + 3 \times f(x)</script>
+</li>
+</ul>
+</li>
+<li>Menghitung nilai <script type="math/tex">I</script> dengan menjumlahkan nilai <script type="math/tex">sigma</script> dari <script type="math/tex">n = 1</script> sampai <script type="math/tex">n = n -1</script> dengan nilai <script type="math/tex">f(a)</script>dan <script type="math/tex">f(b)</script>,</li>
+<li>Cetak hasil perhitungannya.</li>
+</ol>
+<p>Dan implementasi dari algoritma tersebut terangkum dalam source code berikut.<sup id="fnref:f"><a class="footnote-ref" href="#fn:f">6</a></sup></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1">#deklarasi fungsi</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="c1">#nilai fungsi</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="n">true</span> <span class="o">=</span> <span class="mi">256</span> <span class="c1">#nilai analitik</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">#batas atas</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#batas bawah</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan banyak iterasi : &quot;</span><span class="p">))</span> <span class="c1">#inputkan banyak iterasi(segmen/pias)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1">#hitung lebar segmen/pias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">b</span> <span class="c1">#inisialisasi awal nilai x</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#inisialisasi awal nilai sigma</span>
+<span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1">#menghitung nilai I</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE 3/8 RAMPSON -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;|iterasi|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai xi&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai f(xi)&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai I&#39;&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai eror|&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span> <span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">h</span> <span class="c1">#nilai x diupdate</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span><span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#kondisi jika habis dibagi 3</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#update nilai sigma + 2*f(x)</span>
+    <span class="k">else</span> <span class="p">:</span> <span class="c1">#jika tidak memenuhi</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="c1">#update nilai sigma + 3*f(x)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1">#menghitung nilai I</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai keseluruhanprint</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil integral dari METODE SIMPSON 3/8 ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">)</span> <span class="c1">#menampilkan nilai I</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Dan nilai eror yang dihasilkan dari METODE SIMPSON 3/8 ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai eror</span>
+</code></pre></div>
+
+<p>Dan hasil output dari source code tersebut sebagai berikut</p>
+<div class="codehilite"><pre><span></span><code>Masukkan banyak iterasi : 6
+===========================================================================
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE 3/8 RAMPSON -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+===========================================================================
+|iterasi| nilai xi  | nilai f(xi)   | nilai I       | nilai eror|
+|1      | 0.000000  | 0.000000      | 64.000000     | 75.000000|
+|2      | 0.666667  | 1.185185      | 64.888889     | 74.652778|
+|3      | 1.333333  | 9.481481      | 72.000000     | 71.875000|
+|4      | 2.000000  | 32.000000     | 88.000000     | 65.625000|
+|5      | 2.666667  | 75.851852     | 144.888889    | 43.402778|
+|6      | 3.333333  | 148.148148    | 256.000000    | 0.000000 |
+===========================================================================
+Hasil integral dari METODE SIMPSON 3/8 ialah : 256.000000
+Dan nilai eror yang dihasilkan dari METODE SIMPSON 3/8 ialah : 0.000000
+</code></pre></div>
+
+<h4 id="4_aturan_titik_tengah">4. Aturan Titik Tengah<a class="headerlink" href="#4_aturan_titik_tengah" title="Permanent link">&para;</a></h4>
+<p>​   Aturan titik tengah merupakan metode integrasi numerik yang diperoleh degan cara yang sama dengan aturan trapesium. Dengan mengevaluasi fungsi <script type="math/tex">f(x)</script> di titik tengah pada setiap interval, maka kesalahannya akan jauh lebih kecil dibandingkan dengan metode trapesium. Gambar berikut memberikan deskripsi grafis terhadap pendekatan ini.<sup id="fnref6:c"><a class="footnote-ref" href="#fn:c">3</a></sup></p>
+<p><img alt="Aturan Titik Tengah" src="https://fahrur190125.github.io/img/titik tengah.png" /></p>
+<p>​   Untuk dapat mereduksi kesalahan dari metode ini adalah dengan cara membagi interval <script type="math/tex">x_{0}</script>
+</p>
+<p>hingga <script type="math/tex">x_{1}</script> menjadi <em>n</em> segmen yang lebih kecil. Aturan titik tengah banyak segmen ini dapat dinyatakan sebagai berikut.<sup id="fnref7:c"><a class="footnote-ref" href="#fn:c">3</a></sup>
+<script type="math/tex; mode=display">
+\int^{a}_{b} f(x)dx = I = h\sum^{n-1}_{i=0}f(x_{(a+1/2)}h)
+</script>
+<strong>Keterangan :</strong></p>
+<p>
+<script type="math/tex">I</script> =<em>Hasil pengintegralan</em></p>
+<p>
+<script type="math/tex">f(x)</script> = <em>Fungsi yang diintegralkan</em></p>
+<p>
+<script type="math/tex">a</script> = <em>Batas atas integral</em></p>
+<p>
+<script type="math/tex">b</script> = <em>Batas bawah integral</em></p>
+<p>
+<script type="math/tex">h</script> = <em>Panjang setiap pias/segmen</em></p>
+<p>
+<script type="math/tex">n</script> = <em>Banyak pias/segmen</em></p>
+<p>Contoh :</p>
+<p>Tentukan nilai aproksimasi integral dari fungsi <script type="math/tex">f(x) = 4x^{3}</script> dari <script type="math/tex">x</script> = 0 hingga <script type="math/tex">x</script> = 4 dengan menggunakan aturan titik tengah empat pias/segmen.</p>
+<p>​   Jawab : 
+<script type="math/tex; mode=display">
+\int^{4}_{0}4x^{3} = 1[4\times((0+0.5)1)^{3} + 4\times((1+0.5)1)^{3} + 4\times((2+0.5)1)^{3} + 4\times((3+0.5)1)^{3}]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+1[4(0.5^{3})+4(1,5^{3})+4(2,5^{3})+4(3,5^{3})]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+1[4(0,125)+4(3,375)+4(15,625)+4(42,875)]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+1[0,5+13,5+62,5+171,5]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+= 248
+</script>
+</p>
+<p>Dari hasil tersebut diperoleh nilai eror sebesar
+<script type="math/tex; mode=display">
+e = \dfrac{256-248}{256} \times 100\% =  3,125\%
+</script>
+Algoritma program untuk aturan titik tengah dapat dinyatakan sebagai berikut.</p>
+<ol>
+<li>Mendefinisikan fungsi yang akan diintegrasikan,</li>
+<li>Menentukan batas atas <script type="math/tex">a</script> dan batas bawah <script type="math/tex">b</script>,</li>
+<li>Menginputkan banyaknya iterasi (pias/segmen) yaitu <script type="math/tex">n</script>,</li>
+<li>Menghitung lebar segmen/pias yaitu <script type="math/tex">h =(b-a)/n</script>,</li>
+<li>Menghitung nilai <script type="math/tex">x = a + (h/2)</script>
+</li>
+<li>Inisialisasi nilai <script type="math/tex">sigma</script> sama dengan nilai fungsi <script type="math/tex">f(x)</script>
+</li>
+<li>Update nilai <script type="math/tex">x = x + h</script> setiap melakukan perulangan</li>
+<li>Update nilai <script type="math/tex">sigma = sigma + f(x)</script>
+</li>
+<li>Hitung nilai <script type="math/tex">I = h \times sigma</script>
+</li>
+<li>Cetak hasil perhitungannya.</li>
+</ol>
+<p>Kemudian implementasi dari algoritma tersebut terangkum dalam source code berikut.<sup id="fnref:g"><a class="footnote-ref" href="#fn:g">7</a></sup></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1">#deklarasi fungsi</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="c1">#nilai fungsi</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="n">true</span> <span class="o">=</span> <span class="mi">256</span> <span class="c1">#nilai analitik</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">#batas atas</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#batas bawah</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan banyak iterasi : &quot;</span><span class="p">))</span> <span class="c1">#inputkan banyak iterasi(segmen/pias)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1">#hitung lebar segmen/pias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="c1">#inisialisasi awal nilai x</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#inisialisasi awal nilai sigma</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">sigma</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- ATURAN TITIK TENGAH -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;banyak iterasi : &quot;</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;|iterssi|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai xi&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai f(xi)&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai I&#39;&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s1">&#39;nilai eror|&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span> <span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">h</span> <span class="c1">#nilai x diupdate</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#nilai I dari n=1 hingga n=n-1</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">sigma</span> <span class="c1">#menghitung nilai I</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">true</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># menghitung eror</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">|&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai keseluruhan</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;===========================================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil integral numerik dari ATURAN TITIK TENGAH ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">I</span><span class="p">)</span> <span class="c1">#menampilkan nilai </span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Dan nilai eror yang dihasilkan dari ATURAN TITIK TENGAH ialah : </span><span class="si">%f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">e</span><span class="p">)</span> <span class="c1">#menampilkan nilai eror</span>
+</code></pre></div>
+
+<p>Dan hasil output dari source code tersebut sebagai berikut.</p>
+<div class="codehilite"><pre><span></span><code>Masukkan banyak iterasi : 4
+===========================================================================
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- ATURAN TITIK TENGAH -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+===========================================================================
+banyak iterasi :  4
+|iterssi| nilai xi  | nilai f(xi)   | nilai I   | nilai eror|
+|1  | 0.500000  | 0.500000      | 0.500000      | 99.804688|
+|2  | 1.500000  | 13.500000     | 14.000000     | 94.531250|
+|3  | 2.500000  | 62.500000     | 76.500000     | 70.117188|
+|4  | 3.500000  | 171.500000    | 248.000000    | 3.125000|
+===========================================================================
+Hasil integral numerik dari ATURAN TITIK TENGAH ialah : 248.000000
+Dan nilai eror yang dihasilkan dari ATURAN TITIK TENGAH ialah : 3.125000
+</code></pre></div>
+
+<hr />
+<h3 id="referensi">Referensi<a class="headerlink" href="#referensi" title="Permanent link">&para;</a></h3>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:a">
+<p>http://ishaq.staff.gunadarma.ac.id/Downloads/files/43838/Integrasi+Numerik.pdf&#160;<a class="footnote-backref" href="#fnref:a" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:a" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:b">
+<p>https://youtu.be/0UcJbiFHiT4&#160;<a class="footnote-backref" href="#fnref:b" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:b" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:b" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:b" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:b" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:b" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:c">
+<p>http://staffnew.uny.ac.id/upload/132206562/pendidikan/Integrasi+Numerik.pdf&#160;<a class="footnote-backref" href="#fnref:c" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:c" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:c" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:c" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:c" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:c" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:c" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:d">
+<p>https://youtu.be/iAszeC2_1cU&#160;<a class="footnote-backref" href="#fnref:d" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:e">
+<p>https://youtu.be/U8dttZ5MMsA&#160;<a class="footnote-backref" href="#fnref:e" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:f">
+<p>https://youtu.be/lY8e3DysYSs&#160;<a class="footnote-backref" href="#fnref:f" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:g">
+<p>https://youtu.be/qOaWNCBnePk&#160;<a class="footnote-backref" href="#fnref:g" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2019 peaceiris
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/peaceiris" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/piris314en" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

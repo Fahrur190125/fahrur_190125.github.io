@@ -1,0 +1,1221 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="MkDocs Material Boilerplate (Starter Kit) - Deploy documentation to hosting platforms (Netlify, GitHub Pages, GitLab Pages, and AWS Amplify Console) with Docker, pipenv, and GitHub Actions.">
+      
+      
+      
+        <meta name="author" content="peaceiris">
+      
+      
+        <link rel="canonical" href="https://mkdocs.peaceiris.com/index/SPL/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+    
+    
+      
+        <title>SISTEM PERSAMAAN LINEAR (SPL) - Komputasi Numerik</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="manifest" href="../../manifest.json" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistem_persamaan_linear_spl" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Komputasi Numerik" class="md-header__button md-logo" aria-label="Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Komputasi Numerik
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SISTEM PERSAMAAN LINEAR (SPL)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Komputasi Numerik" class="md-nav__button md-logo" aria-label="Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Komputasi Numerik
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Integrasi Numerik
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SPL/" class="md-nav__link">
+        Solusi Numerik Sistem Persamaan Linear
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Differensial/" class="md-nav__link">
+        Solusi Numerik Persamaan Differensial Biasa
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a_definisi_sistem_persamaan_linear_spl" class="md-nav__link">
+    A. Definisi Sistem Persamaan Linear (SPL)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b_metode_penyelesaian_sistem_persamaan_linear_spl" class="md-nav__link">
+    B. Metode Penyelesaian Sistem Persamaan Linear (SPL)
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Metode Penyelesaian Sistem Persamaan Linear (SPL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_metode_eliminasi_gauss" class="md-nav__link">
+    1. Metode Eliminasi Gauss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_metode_jacobi" class="md-nav__link">
+    2. Metode Jacobi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_metode_gauss_seidel" class="md-nav__link">
+    3. Metode Gauss Seidel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    Referensi
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/peaceiris/mkdocs-material-boilerplate/edit/master/docs_sample/index/SPL.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="sistem_persamaan_linear_spl">SISTEM PERSAMAAN LINEAR (SPL)<a class="headerlink" href="#sistem_persamaan_linear_spl" title="Permanent link">&para;</a></h1>
+<h3 id="a_definisi_sistem_persamaan_linear_spl">A. Definisi Sistem Persamaan Linear (SPL)<a class="headerlink" href="#a_definisi_sistem_persamaan_linear_spl" title="Permanent link">&para;</a></h3>
+<p>​   Sistem persamaan linear (SPL) merupakan sekelompok persamaan linear yang terdiri dari beberapa variabel.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Sistem persamaan linear banyak dijumpai dalam berbagai disiplin ilmu, diantaranya matematika, fisika, statistika, teknik, biologi, dan ilmu-ilmu sosial serta bisnis. Sistem persamaan linear muncul secara langsung dari masalah-masalah nyata yang merupakan bagian dari proses penyelesaian masalah lain.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>​   Bentuk umum sistem persamaan linear  ialah sebagai berikut :</p>
+<ol>
+<li>
+<p>Sistem Persamaan Linear Dua Variabel (SPLDV)
+   <script type="math/tex; mode=display">
+   \begin{cases}ax+by = c\\ Px+qx = r \end{cases} atau \begin{cases}a_{1}x+b_{1}y = c_{1}\\ a_{2}x+b_{2}y = c_{2}\end{cases}
+   </script>
+</p>
+</li>
+<li>
+<p>Sistem Persamaan Linear Tiga Variabel (SPLTV)</p>
+</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}ax+by+ cz= d\\ ex+fy+gz = h\\ ix+jy+kz = l \end{cases} atau \begin{cases}a_{1}x+b_{1}y + c_{1}z = d_{1}\\ a_{2}x+b_{2}y + c_{2}z = d_{2}\\a_{3}x+b_{3}y + c_{3}z = d_{3}\end{cases}
+</script>
+</p>
+<p>​   Untuk menyelesaikan bentuk sistem persamaan linear dengan 2 atau 3 variabel masih bisa diselesaikan dengan menggunakan metode analitik, namun bagaimana jika sistem persamaan linear tersebut terdiri dari banyak variabel/tak berhingga. Bentuk yang dimaksud ialah :
+<script type="math/tex; mode=display">
+\begin{aligned}a_{11}x_{1}+a_{12}x_{2}+\ldots + a_{1n}x_{n} = b_{1}\\ a_{21}x_{1}+a_{22}x_{2}+\ldots +a_{2n}x_{n}=b_{2}\\ \vdots \\a_{n1}x_{1}+a_{n2}x_{2}+\ldots +a_{nn}x_{n}=b_{n}\end{aligned}
+</script>
+​   Untuk menyelesaikan persoalan tersebut dapat diselesaikan dengan menggunakan metode numerik, untuk lebih jelasnya perhatikan penjelasan berikut.</p>
+<h3 id="b_metode_penyelesaian_sistem_persamaan_linear_spl">B. Metode Penyelesaian Sistem Persamaan Linear (SPL)<a class="headerlink" href="#b_metode_penyelesaian_sistem_persamaan_linear_spl" title="Permanent link">&para;</a></h3>
+<p>​   Untuk menyelesaikan sistem persamaan linear ialah  dengan cara mencari nilai-nilai variabel tersebut sehingga memenuhi semua persamaan linear yang diberikan. <sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> Dalam hal tersebut terdapat beberapa metode/cara untuk dapat menyelesaikan sistem persamaan linear diantaranya sebagai berikut.</p>
+<h4 id="1_metode_eliminasi_gauss">1. Metode Eliminasi Gauss<a class="headerlink" href="#1_metode_eliminasi_gauss" title="Permanent link">&para;</a></h4>
+<p>​   Metode eliminasi Gauss merupakan sebuah metode yang digunakan untuk menyelesaikan sistem persamaan linear dengan cara mengubah SPL tersebut ke dalam bentuk matrik yang berbentuk segitiga atas, yaitu semua koefisien di bawah diagonal utamanya bernilai nol. Kemudian bentuk segitiga atas tersebut dapat diselesaikan dengan cara mensubstitusi balik. Untuk mendapatkan bentuk segitiga atas tersebut dari SPL yang diberikan, metode eliminasi Gauss menggunakan Operasi Baris Elementer (OBE):<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup> </p>
+<ol>
+<li>Menukar posisi dua buah persamaan.</li>
+<li>Menambah sebuah persamaan dengan suatu kelipatan persamaan lain.</li>
+<li>Mengalikan sebuah persamaan dengan sembarang konstanta  tak nol.<sup id="fnref5:2"><a class="footnote-ref" href="#fn:2">2</a></sup> </li>
+</ol>
+<p>Pemakaian OBE tersebut pada suatu SPL tidak akan mengubah SPL yang berkaitan, sudah jelas bahwa sebuah SPL tidak tergantung pada susunan persamaan, sehingga OBE nomor 1 dapat digunakan. Dan dalam setiap persamaan kedua ruas menyatakan nilai yang sama, sehingga OBE nomor 2 dapat dipakai. Demikian halnya OBE nomor 3 menghasilkan persamaan yang ekuivalen.  Sehingga bentuk prosedur metode eliminasi gauss di asumsikan sebagai berikut.
+<script type="math/tex; mode=display">
+\begin{bmatrix} a_{11}& a_{12}&a_{13}&:&b_{1}\\ a_{21}& a_{22}&a_{23}&:&b_{2} \\a_{31}& a_{32}&a_{33}&:&b_{3}\end{bmatrix}\Rightarrow\begin{bmatrix} a_{11}& a_{12}&a_{13}&:&b_{1}\\ 0& a^{'}_{22}&a^{'}_{23}&:&b^{'}_{2} \\0& 0&a^{''}_{33}&:&b^{''}_{3}\end{bmatrix}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+x_{3} = \dfrac{b^{''}_{3}}{a^{''}_{33}}\\
+x_{2} = \dfrac{(b^{'}_{2}-a^{'}_{23}x_{3})}{a^{'}_{22}}\\
+x_{1} = \dfrac{(b_{1}-a_{12}x_{2}-a_{13}x_{3})}{a_{11}}
+</script>
+</p>
+<p>Contoh :</p>
+<p>Selesaikan sistem persamaan linear berikut dengan menggunakan metode eliminasi gauss</p>
+<p>
+<script type="math/tex">6a - 2b + 2c +  4d = 16</script>
+</p>
+<p>
+<script type="math/tex">12a - 8b + 6c + 10d = 26</script>
+</p>
+<p>
+<script type="math/tex">3a - 13b + 9c + 3d = -19</script>
+</p>
+<p>
+<script type="math/tex">-6a + 4b + c + -18d = -34</script>
+</p>
+<p>Jawab :</p>
+<p>Untuk menyelesaikan sistem persamaan tersebut ialah ubah bentuk persamaan tersebut kedalam bentuk matrik segitiga atas dengan cara eliminasi maju.</p>
+<ol>
+<li>Ubah persamaan tersebut kedalam bentuk matrik</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}6&-2&2&4\\12&-8&6&10\\3&-13&9&3\\-6&4&1&-18\end{bmatrix}\begin{bmatrix}x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix}=\begin{bmatrix}16\\26\\-19\\-34\end{bmatrix}
+</script>
+</p>
+<ol>
+<li>Eliminasi <script type="math/tex">x_{1}</script> dari persamaan 2,3 dan 4</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}6&-2&2&4\\0&-4&2&2\\0&-12&8&1\\0&2&3&-14\end{bmatrix}\begin{bmatrix}x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix}=\begin{bmatrix}16\\-6\\-27\\-18\end{bmatrix}
+</script>
+</p>
+<ol>
+<li>Eliminasi <script type="math/tex">x_{2}</script> dari persamaan 3 dan 4</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}6&-2&2&4\\0&-4&2&2\\0&0&2&-5\\0&0&4&-13\end{bmatrix}\begin{bmatrix}x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix}=\begin{bmatrix}16\\-6\\-9\\-21\end{bmatrix}
+</script>
+</p>
+<ol>
+<li>Eliminasi <script type="math/tex">x_{3}</script> dari persamaan 4</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}6&-2&2&4\\0&-4&2&2\\0&0&2&-5\\0&0&0&-3\end{bmatrix}\begin{bmatrix}x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix}=\begin{bmatrix}16\\-6\\-9\\-3\end{bmatrix}
+</script>
+</p>
+<p>Hasil dari eliminasi maju sebagai berikut.
+<script type="math/tex; mode=display">
+\begin{bmatrix}6&-2&2&4\\12&-8&6&10\\3&-13&9&3\\-6&4&1&-18\end{bmatrix}\begin{bmatrix}x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix}=\begin{bmatrix}16\\26\\-19\\-34\end{bmatrix}\Rightarrow\ \begin{bmatrix}6&-2&2&4\\0&-4&2&2\\0&0&2&-5\\0&0&0&-3\end{bmatrix}\begin{bmatrix}x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix}=\begin{bmatrix}16\\-6\\-9\\-3\end{bmatrix}
+</script>
+</p>
+<p>Setelah diperoleh bentuk matrik segitiga atas, langkah selanjutnya lakukan substitusi mundur mulai dari <script type="math/tex">x_{4}</script> hingga <script type="math/tex">x_{1}</script>
+<script type="math/tex; mode=display">
+x_{4} = \dfrac{-3}{-3} = 1\\
+x_{3} = \dfrac{-9+5(1)}{-2} =  \dfrac{-4}{2}=-2\\
+x_{2} = \dfrac {-6-2(2)-2(1)}{-4} = \dfrac{-4}{-4} = 1\\
+x_{1} = \dfrac{16-4(1)-2(-2)+2(1)}{6}= \dfrac{18}{6}=3
+</script>
+Sehingga diperoleh nilai <script type="math/tex">a = 3</script>, <script type="math/tex">b = 1</script>, <script type="math/tex">c = -2</script> dan <script type="math/tex">d = 1</script>
+</p>
+<p><strong>Algoritma Metode Eliminasi Gauss</strong></p>
+<ol>
+<li>Deklarasikan SPL dalam bentuk matrik</li>
+<li>Membuat perulangan bersarang untuk melakukan eliminasi maju dengan struktur :</li>
+<li>Perulangan pertama untuk melakukan perulangan sebanyak panjang matrik yang dimulai dari 0.</li>
+<li>Perulangan kedua (di dalam perulangan pertama) untuk menentukan nilai faktor pengali pembuat 0 dan mengubah nilai matrik hasil yang dikurangi dengan nilai dari faktor yang dikalikan dengan matrik di indeks atas diagonal.</li>
+<li>Perulangan ketiga (di dalam perulangan kedua) untuk mengubah nilai matrik di indeks bawah diagonal menjadi nol dengan cara dikurangi dengan nilai dari faktor yang dikalikan dengan matrik di indeks atas diagonal.</li>
+<li>Perulangan keempat(di dalam perulangan kedua) untuk menampilkan perubahan nilai matrik.</li>
+<li>Membuat perulangan bersarang untuk melakukan substitusi mundur dengan struktur :</li>
+<li>Perulangan pertama sebanyak panjang matrik yang dimulai dari indeks terakhir untuk mengambil nilai hasil  dari <script type="math/tex">x_{n}</script> hingga <script type="math/tex">x_{1}</script> dan mengubah nilai matrik  di indeks yang menyimpan nilai <script type="math/tex">x_{i}</script>dengan nilai yang diperoleh di perulangan kedua yang dibagi dengan koefisien <script type="math/tex">x_{i}</script>.</li>
+<li>Perulangan kedua(di dalam perulangan pertama) untuk mengurangi nilai hasil dengan nilai korfisien yang dikalikan dengan nilai <script type="math/tex">x_{i}</script>.</li>
+<li>Perulangan ketiga(di dalam perulangan pertama) untuk menampilkan nilai matrik setelah diubah.</li>
+<li>Menampilkan nilai dari <script type="math/tex">x_{1}</script> hingga <script type="math/tex">x_{n}</script>.</li>
+</ol>
+<p>Kemudian implementasi dari algoritma tersebut ialah sebagai berikut</p>
+<p><strong>Source Code Metode Eliminasi Gauss</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">matrik</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">[[</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="s2">&quot;X1&quot;</span><span class="p">],[</span><span class="mi">16</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="s2">&quot;X2&quot;</span><span class="p">],[</span><span class="mi">26</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="s2">&quot;X3&quot;</span><span class="p">],[</span><span class="o">-</span><span class="mi">19</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">18</span><span class="p">],[</span><span class="s2">&quot;X4&quot;</span><span class="p">],[</span><span class="o">-</span><span class="mi">34</span><span class="p">]],</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Penyelesaiaan Sistem Persamaan Linear Dari&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">matrik</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Menggunakan Metode Eliminasi Gauss&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE ELIMINNASI GAUSS  -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+<span class="c1">#untuk Eliminasi Maju</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+        <span class="n">faktor</span><span class="o">=</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">/</span><span class="n">matrik</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;faktor = &quot;</span><span class="p">,</span><span class="n">faktor</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+            <span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">faktor</span><span class="o">*</span><span class="n">matrik</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]),</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">faktor</span><span class="o">*</span><span class="n">matrik</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">matrik</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#Untuk Substitusi Mundur</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">sum</span><span class="o">=</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">-</span> <span class="nb">round</span><span class="p">((</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">matrik</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="o">/</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">matrik</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nilai Variabel yang diperoleh&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x</span><span class="si">{</span><span class="n">u</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">matrik</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Dan hasil output dari source code tersebut ialah sebagai berikut.</p>
+<div class="codehilite"><pre><span></span><code>Penyelesaiaan Sistem Persamaan Linear Dari
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[12, -8, 6, 10], [&#39;X2&#39;], [26]]
+[[3, -13, 9, 3], [&#39;X3&#39;], [-19]]
+[[-6, 4, 1, -18], [&#39;X4&#39;], [-34]]
+Menggunakan Metode Eliminasi Gauss
+=======================================================
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE ELIMINNASI GAUSS  -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+=======================================================
+faktor =  2.0
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[3, -13, 9, 3], [&#39;X3&#39;], [-19]]
+[[-6, 4, 1, -18], [&#39;X4&#39;], [-34]]
+
+
+faktor =  0.5
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[0.0, -12.0, 8.0, 1.0], [&#39;X3&#39;], [-27.0]]
+[[-6, 4, 1, -18], [&#39;X4&#39;], [-34]]
+
+
+faktor =  -1.0
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[0.0, -12.0, 8.0, 1.0], [&#39;X3&#39;], [-27.0]]
+[[0.0, 2.0, 3.0, -14.0], [&#39;X4&#39;], [-18.0]]
+
+
+faktor =  3.0
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[0.0, 0.0, 2.0, -5.0], [&#39;X3&#39;], [-9.0]]
+[[0.0, 2.0, 3.0, -14.0], [&#39;X4&#39;], [-18.0]]
+
+
+faktor =  -0.5
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[0.0, 0.0, 2.0, -5.0], [&#39;X3&#39;], [-9.0]]
+[[0.0, 0.0, 4.0, -13.0], [&#39;X4&#39;], [-21.0]]
+
+
+faktor =  2.0
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[0.0, 0.0, 2.0, -5.0], [&#39;X3&#39;], [-9.0]]
+[[0.0, 0.0, 0.0, -3.0], [&#39;X4&#39;], [-3.0]]
+
+
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[0.0, 0.0, 2.0, -5.0], [&#39;X3&#39;], [-9.0]]
+[[0.0, 0.0, 0.0, -3.0], [1.0], [-3.0]]
+
+
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [&#39;X2&#39;], [-6.0]]
+[[0.0, 0.0, 2.0, -5.0], [-2.0], [-9.0]]
+[[0.0, 0.0, 0.0, -3.0], [1.0], [-3.0]]
+
+
+[[6, -2, 2, 4], [&#39;X1&#39;], [16]]
+[[0.0, -4.0, 2.0, 2.0], [1.0], [-6.0]]
+[[0.0, 0.0, 2.0, -5.0], [-2.0], [-9.0]]
+[[0.0, 0.0, 0.0, -3.0], [1.0], [-3.0]]
+
+
+[[6, -2, 2, 4], [3.0], [16]]
+[[0.0, -4.0, 2.0, 2.0], [1.0], [-6.0]]
+[[0.0, 0.0, 2.0, -5.0], [-2.0], [-9.0]]
+[[0.0, 0.0, 0.0, -3.0], [1.0], [-3.0]]
+
+
+Nilai Variabel yang diperoleh
+x1 = 3.0
+x2 = 1.0
+x3 = -2.0
+x4 = 1.0
+=======================================================
+</code></pre></div>
+
+<h4 id="2_metode_jacobi">2. Metode Jacobi<a class="headerlink" href="#2_metode_jacobi" title="Permanent link">&para;</a></h4>
+<p>​   Metode jacobi merupakan metode untuk menyelesaikan sistem persamaan linear dengan cara melakukan iterasi. Misalkan terdapat 3 persamaan dengan 3 bilangan tak diketahui :
+<script type="math/tex; mode=display">
+a_{11}x_{1}+a_{12}x_{2}+a_{13}x_{3}=b_{1}\\a_{21}x_{1}+a_{22}x_{2}+a_{23}x_{3}=b_{2}\\a_{31}x_{1}+a_{32}x_{2}+a_{33}x_{3}=b_{3}
+</script>
+​   Dari sistem persamaan tersebut dengan menggunakan metode jacobi kita dapat menhitung nilai <script type="math/tex">x_{1}</script> dengan menggunakan persamaan pertama. Begitu pula dengan <script type="math/tex">x_{2}</script> dan <script type="math/tex">x_{3}</script> dapat dihitung dengan menggunakan persamaan kedua dan ketiga, sehingga didapat :
+<script type="math/tex; mode=display">
+x_{1} = \dfrac{b_{1}-a_{12}x_{2}-a_{13}x_{3}}{a_{11}}\\x_{2} = \dfrac{b_{2}-a_{21}x_{1}-a_{23}x_{3}}{a_{22}}\\x_{3} = \dfrac{b_{3}-a_{31}x_{1}-a_{32}x_{2}}{a_{33}}
+</script>
+​   Sehingga metode jacobi secara umum dapat dituliskan sebagai berikut:[^3] 
+<script type="math/tex; mode=display">
+x^{(k+1)}_{i} =\left( b_{i}-\sum^{i-1}_{j=1}a_{ij}x^{k}_{j}-\sum^{n}_{j=i+1}a_{ij}x^{k}_{j} \right)/a_{ii}
+</script>
+Contoh :</p>
+<p>Selesaikan sistem persamaan linear 4 variabel berikut menggunakan iterasi jacobi.</p>
+<p>
+<script type="math/tex">10a - b + 2c = 6</script>
+</p>
+<p>
+<script type="math/tex">-a + 11b - c + 3d = 25</script>
+</p>
+<p>
+<script type="math/tex">2a - b + 10c - d = -11</script>
+</p>
+<p>
+<script type="math/tex">3b - c + 8d = 15</script>
+</p>
+<p>Jawab :</p>
+<p>Dari soal diperoleh :
+<script type="math/tex; mode=display">
+10x_{1}-x_{2}+2x_{3} = 6\\
+-x{1}+11x_{2}-x_{3}+3x_{4} = 25 \\
+2x_{1}-x_{2}+10_{x3}-x_{4}=11\\
+3x_{2}-x_{3}+8x_{4} = 15
+</script>
+Sehingga nilai <script type="math/tex">x_{1}</script> hingga <script type="math/tex">x_{4}</script> :
+<script type="math/tex; mode=display">
+x_{1} =(x_{2}-2x_{3}+6)/10\\
+x_{2} =(x_{1}+x_{3}-3x_{4}+25)/11\\
+x_{3} =(-2x_{1}+x_{2}+x_{4}-11)/10\\
+x_{4} =(-3x_{2}+x_{3}+15)/8
+</script>
+Sehingga nilai <script type="math/tex">x_{1}</script> hingga <script type="math/tex">x_{4}</script> pada iterasi ke <script type="math/tex">k</script> dapat dituliskan sebagai berikut :
+<script type="math/tex; mode=display">
+x_{1}^{(k+1)} =(x_{2}^{k}-2x_{3}^{k}+6)/10\\
+x_{2}^{(k+1)} =(x_{1}^{k}+x_{3}^{k}-3x_{4}^{k}+25)/11\\
+x_{3}^{(k+1)} =(-2x_{1}^{k}+x_{2}^{k}+x_{4}^{k}-11)/10\\
+x_{4}^{(k+1)} =(-3x_{2}^{k}+x_{3}^{k}+15)/8
+</script>
+Dan nilai yang diperoleh disajikan dalam tabel berikut :</p>
+<table>
+<thead>
+<tr>
+<th>
+<script type="math/tex">X_{i}</script>
+</th>
+<th>K = 1</th>
+<th align="left">K = 2</th>
+<th>K = 3</th>
+<th>K = 4</th>
+<th>K = 5</th>
+<th>K = 6</th>
+<th>K = 7</th>
+<th>K = 8</th>
+<th>K = 9</th>
+<th>K = 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<script type="math/tex">x_{1}</script>
+</td>
+<td>
+<script type="math/tex">0,6000</script>
+</td>
+<td align="left">
+<script type="math/tex">1,0473</script>
+</td>
+<td>
+<script type="math/tex">0,9326</script>
+</td>
+<td>
+<script type="math/tex">1,0152</script>
+</td>
+<td>
+<script type="math/tex">0,9890</script>
+</td>
+<td>
+<script type="math/tex">1,0032</script>
+</td>
+<td>
+<script type="math/tex">0,9981</script>
+</td>
+<td>
+<script type="math/tex">1,0006</script>
+</td>
+<td>
+<script type="math/tex">0,9997</script>
+</td>
+<td>
+<script type="math/tex">1,0001</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">x_{2}</script>
+</td>
+<td>
+<script type="math/tex">2,2727</script>
+</td>
+<td align="left">
+<script type="math/tex">1,7159</script>
+</td>
+<td>
+<script type="math/tex">2,0533</script>
+</td>
+<td>
+<script type="math/tex">1,9537</script>
+</td>
+<td>
+<script type="math/tex">2,0114</script>
+</td>
+<td>
+<script type="math/tex">1,9922</script>
+</td>
+<td>
+<script type="math/tex">2,0023</script>
+</td>
+<td>
+<script type="math/tex">1,9987</script>
+</td>
+<td>
+<script type="math/tex">2.0004</script>
+</td>
+<td>
+<script type="math/tex">1,9998</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">x_{3}</script>
+</td>
+<td>
+<script type="math/tex">-1,1000</script>
+</td>
+<td align="left">
+<script type="math/tex">-0,8052</script>
+</td>
+<td>
+<script type="math/tex">-1,0493</script>
+</td>
+<td>
+<script type="math/tex">-0,9681</script>
+</td>
+<td>
+<script type="math/tex">-1,0103</script>
+</td>
+<td>
+<script type="math/tex">-0,9945</script>
+</td>
+<td>
+<script type="math/tex">-1,0020</script>
+</td>
+<td>
+<script type="math/tex">0,9990</script>
+</td>
+<td>
+<script type="math/tex">-1,0004</script>
+</td>
+<td>
+<script type="math/tex">-0,9998</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">x_{4}</script>
+</td>
+<td>
+<script type="math/tex">-1,8750</script>
+</td>
+<td align="left">
+<script type="math/tex">0,8852</script>
+</td>
+<td>
+<script type="math/tex">1,1309</script>
+</td>
+<td>
+<script type="math/tex">0,9738</script>
+</td>
+<td>
+<script type="math/tex">1,0214</script>
+</td>
+<td>
+<script type="math/tex">0,9944</script>
+</td>
+<td>
+<script type="math/tex">1.0036</script>
+</td>
+<td>
+<script type="math/tex">0,9989</script>
+</td>
+<td>
+<script type="math/tex">1,0006</script>
+</td>
+<td>
+<script type="math/tex">0,9998</script>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Algoritma Metode Jacobi</strong></p>
+<ol>
+<li>Deklarasikan SPL dalam bentuk matrik</li>
+<li>Deklarasi nilai <script type="math/tex">X_{i}</script> dari hasil analitik</li>
+<li>Deklarasi array yang kosong ( <em>K = [ ]</em>)</li>
+<li>Buat perulangan untuk menampilkan SPL dalam bentuk matrik</li>
+<li>Tentukan banyak iterasi (<em>n</em>)</li>
+<li>Buat perulangan untuk membuat nilai awal <script type="math/tex">x_{i} = 0</script>
+</li>
+<li>Buat perulangan bersarang dengan ketentuan :</li>
+<li>Perulangan pertama sebanyak <em>n</em> inputan untuk menentukan berapa kali melakukan iterasi. Dan menghapus nilai di dalam array kosong(<em>K = [ ]</em>).</li>
+<li>Perulangan kedua(di dalam perulangan pertama) sebanyak panjang dari matrik untuk mengambil nilai hasil di dalam matrik. Dan menampung nilai yang dihasilkan dari perulangan ketiga kedalam array kosong .</li>
+<li>Perulangan ketiga(di dalam perulangan kedua) sebanyak panjang dari matrik untuk mengurangi nilai hasil dengan koefisien yang dikalikan dengan nilai <script type="math/tex">x_{i}</script> dengan mengambil nilai dari matrik.</li>
+<li>Perulangan keempat(di dalam perulangan pertama) sebanyak panjang matrik untuk mengubah nilai <script type="math/tex">x_{i}</script> dengan nilai yang ditampung di array kosong. Dan menghitung nilai error yang dihasilkan kemudian menampilkan nilai <script type="math/tex">x_{i}</script> dan error yang dihasilkan pada iterasi ke-k.</li>
+</ol>
+<p>Sehingga source code dari metode jacobi ialah sebagai berikut.</p>
+<p><strong>Source Code Metode Jacobi</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">matrik</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="s2">&quot;X1&quot;</span><span class="p">],[</span><span class="mi">6</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="s2">&quot;X2&quot;</span><span class="p">],[</span><span class="mi">25</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="s2">&quot;X3&quot;</span><span class="p">],[</span><span class="o">-</span><span class="mi">11</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],[</span><span class="s2">&quot;X4&quot;</span><span class="p">],[</span><span class="mi">15</span><span class="p">]],</span> 
+<span class="p">]</span>
+<span class="n">true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">K</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Penyelesaiaan Sistem Persamaan Linear Dari&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">matrik</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Menggunakan Metode Jacobi&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan banyak iterasi : &quot;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE JACOBI -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+        <span class="nb">sum</span><span class="o">=</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="nb">sum</span><span class="o">=</span><span class="nb">sum</span><span class="o">-</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">matrik</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="o">/</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;iterasi </span><span class="si">{</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;|Xi&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;|errorXi&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+        <span class="n">matrik</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+        <span class="n">ea</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">true</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">-</span><span class="n">K</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="o">/</span><span class="n">true</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;|</span><span class="si">%.10f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">K</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.10f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ea</span><span class="p">)</span>
+    <span class="n">K</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Dan output yang dihasilkan sebagai berikut.</p>
+<div class="codehilite"><pre><span></span><code>Penyelesaiaan Sistem Persamaan Linear Dari
+[[10, -1, 2, 0], [&#39;X1&#39;], [6]]
+[[-1, 11, -1, 3], [&#39;X2&#39;], [25]]
+[[2, -1, 10, -1], [&#39;X3&#39;], [-11]]
+[[0, 3, -1, 8], [&#39;X4&#39;], [15]]
+Menggunakan Metode Jacobi
+Masukkan banyak iterasi : 10
+=======================================================
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE JACOBI -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+=======================================================
+iterasi 1    |Xi             |errorXi
+X1       |0.6000000000|      40.0000000000
+X2       |2.2727272727|      13.6363636364
+X3       |-1.1000000000|     10.0000000000
+X4       |1.8750000000|      87.5000000000
+iterasi 2    |Xi             |errorXi
+X1       |1.0472727273|      4.7272727273
+X2       |1.7159090909|      14.2045454545
+X3       |-0.8052272727|     19.4772727273
+X4       |0.8852272727|      11.4772727273
+iterasi 3    |Xi             |errorXi
+X1       |0.9326363636|      6.7363636364
+X2       |2.0533057851|      2.6652892562
+X3       |-1.0493409091|     4.9340909091
+X4       |1.1308806818|      13.0880681818
+iterasi 4    |Xi             |errorXi
+X1       |1.0151987603|      1.5198760331
+X2       |1.9536957645|      2.3152117769
+X3       |-0.9681086260|     3.1891373967
+X4       |0.9738427169|      2.6157283058
+iterasi 5    |Xi             |errorXi
+X1       |0.9889913017|      1.1008698347
+X2       |2.0114147258|      0.5707362885
+X3       |-1.0102859039|     1.0285903926
+X4       |1.0213505101|      2.1350510072
+iterasi 6    |Xi             |errorXi
+X1       |1.0031986534|      0.3198653362
+X2       |1.9922412607|      0.3879369659
+X3       |-0.9945217367|     0.5478263254
+X4       |0.9944337398|      0.5566260154
+iterasi 7    |Xi             |errorXi
+X1       |0.9981284734|      0.1871526582
+X2       |2.0023068816|      0.1153440776
+X3       |-1.0019722306|     0.1972230620
+X4       |1.0035943102|      0.3594310151
+iterasi 8    |Xi             |errorXi
+X1       |1.0006251343|      0.0625134279
+X2       |1.9986703011|      0.0664849439
+X3       |-0.9990355755|     0.0964424487
+X4       |0.9988883906|      0.1111609410
+iterasi 9    |Xi             |errorXi
+X1       |0.9996741452|      0.0325854785
+X2       |2.0004476715|      0.0223835773
+X3       |-1.0003691577|     0.0369157685
+X4       |1.0006191901|      0.0619190140
+iterasi 10   |Xi             |errorXi
+X1       |1.0001185987|      0.0118598691
+X2       |1.9997679470|      0.0116026495
+X3       |-0.9998281429|     0.0171857126
+X4       |0.9997859785|      0.0214021540
+=======================================================
+</code></pre></div>
+
+<h4 id="3_metode_gauss_seidel">3. Metode Gauss Seidel<a class="headerlink" href="#3_metode_gauss_seidel" title="Permanent link">&para;</a></h4>
+<p>​   Metode Gauss Seidel merupakan metode penyelesaian sistem persamaan linear yang hampir sama dengan metode jacobi. Hanya saja di dalam metode jacobi nilai <script type="math/tex">x_{1}</script> yang didapat dari persamaan pertama tidak digunakan untuk menghitung nilai <script type="math/tex">x_{2}</script> dengan menggunakan persamaan kedua. Demikian halnya dengan nilai <script type="math/tex">x_{2}</script> tidak digunakan untuk mencari nilai <script type="math/tex">x_{3}</script>, begitu seterusnya.<sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup> Sedangkan didalam metode Gauss Seidel nilai <script type="math/tex">x_{1}</script> yang diperoleh dari persamaan sebelumnya akan dipakai untuk mencari nilai <script type="math/tex">x_{2}</script> begitupun seterusnya. Sehingga dapat disimpulkan metode Jacobi tidak menggunakan nilai yang terbaru sedangkan metode Gauss Seidel menggunakan nilai yang terbaru.</p>
+<p>​   Sehingga bentuk metoode Gauss Seidel secara umum dapat dituliskan sebagai berikut:[^3] 
+<script type="math/tex; mode=display">
+x^{(k+1)}_{i} =\left( b_{i}-\sum^{i-1}_{j=1}a_{ij}x^{(k+1)}_{j}-\sum^{n}_{j=i+1}a_{ij}x^{k}_{j} \right)/a_{ii}
+</script>
+Contoh :</p>
+<p>Selesaikan sistem persamaan linear 4 variabel berikut menggunakan iterasi Gauss Seidel.</p>
+<p>
+<script type="math/tex">10a - b + 2c = 6</script>
+</p>
+<p>
+<script type="math/tex">-a + 11b - c + 3d = 25</script>
+</p>
+<p>
+<script type="math/tex">2a - b + 10c - d = -11</script>
+</p>
+<p>
+<script type="math/tex">3b - c + 8d = 15</script>
+</p>
+<p>Jawab :</p>
+<p>Dari soal diperoleh :
+<script type="math/tex; mode=display">
+10x_{1}-x_{2}+2x_{3} = 6\\
+-x{1}+11x_{2}-x_{3}+3x_{4} = 25 \\
+2x_{1}-x_{2}+10_{x3}-x_{4}=11\\
+3x_{2}-x_{3}+8x_{4} = 15
+</script>
+Sehingga nilai <script type="math/tex">x_{1}</script> hingga <script type="math/tex">x_{4}</script> :
+<script type="math/tex; mode=display">
+x_{1} =(x_{2}-2x_{3}+6)/10\\
+x_{2} =(x_{1}+x_{3}-3x_{4}+25)/11\\
+x_{3} =(-2x_{1}+x_{2}+x_{4}-11)/10\\
+x_{4} =(-3x_{2}+x_{3}+15)/8
+</script>
+Sehingga nilai <script type="math/tex">x_{1}</script> hingga <script type="math/tex">x_{4}</script> pada iterasi ke <script type="math/tex">k</script> dapat dituliskan sebagai berikut :
+<script type="math/tex; mode=display">
+x_{1}^{(k+1)} =(x_{2}^{k}-2x_{3}^{k}+6)/10\\
+x_{2}^{(k+1)} =(x_{1}^{(k+1)}+x_{3}^{k}-3x_{4}^{k}+25)/11\\
+x_{3}^{(k+1)} =(-2x_{1}^{(k+1)}+x_{2}^{(k+1)}+x_{4}^{k}-11)/10\\
+x_{4}^{(k+1)} =(-3x_{2}^{(k+1)}+x_{3}^{(k+1)}+15)/8
+</script>
+Dan nilai yang diperoleh disajikan dalam tabel berikut :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>K = 1</th>
+<th>K = 2</th>
+<th>K = 3</th>
+<th>K = 4</th>
+<th>K = 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<script type="math/tex">x_{1}</script>
+</td>
+<td>
+<script type="math/tex">0,6000</script>
+</td>
+<td>
+<script type="math/tex">1,0302</script>
+</td>
+<td>
+<script type="math/tex">1,0066</script>
+</td>
+<td>
+<script type="math/tex">1,0009</script>
+</td>
+<td>
+<script type="math/tex">1,0001</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">x_{2}</script>
+</td>
+<td>
+<script type="math/tex">2,3273</script>
+</td>
+<td>
+<script type="math/tex">2,0369</script>
+</td>
+<td>
+<script type="math/tex">2,0036</script>
+</td>
+<td>
+<script type="math/tex">2,0003</script>
+</td>
+<td>
+<script type="math/tex">2,0000</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">x_{3}</script>
+</td>
+<td>
+<script type="math/tex">-0,9873</script>
+</td>
+<td>
+<script type="math/tex">-1,0145</script>
+</td>
+<td>
+<script type="math/tex">-1,0025</script>
+</td>
+<td>
+<script type="math/tex">-1,0003</script>
+</td>
+<td>
+<script type="math/tex">-1,0000</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">x_{4}</script>
+</td>
+<td>
+<script type="math/tex">0,8789</script>
+</td>
+<td>
+<script type="math/tex">0,9843</script>
+</td>
+<td>
+<script type="math/tex">0,9984</script>
+</td>
+<td>
+<script type="math/tex">0,9998</script>
+</td>
+<td>
+<script type="math/tex">1,0000</script>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Algoritma Metode Jacobi</strong></p>
+<ol>
+<li>Deklarasikan SPL dalam bentuk matrik</li>
+<li>Deklarasi nilai <script type="math/tex">X_{i}</script> dari hasil analitik</li>
+<li>Buat perulangan untuk menampilkan SPL dalam bentuk matrik</li>
+<li>Tentukan banyak iterasi (<em>n</em>)</li>
+<li>Buat perulangan untuk membuat nilai awal <script type="math/tex">x_{i} = 0</script>
+</li>
+<li>Buat perulangan bersarang dengan ketentuan :</li>
+<li>Perulangan pertama sebanyak <em>n</em> inputan untuk menentukan berapa kali melakukan iterasi.</li>
+<li>Perulangan kedua(di dalam perulangan pertama) sebanyak panjang dari matrik untuk mengambil nilai hasil di dalam matrik. Dan mengubah nilai <script type="math/tex">x_{i}</script> menjadi nilai yang dihasilkan dari perulangan ketiga.</li>
+<li>Perulangan ketiga(di dalam perulangan kedua) sebanyak panjang dari matrik untuk mengurangi nilai hasil dengan koefisien yang dikalikan dengan nilai <script type="math/tex">x_{i}</script> dengan mengambil nilai dari matrik.</li>
+<li>Perulangan keempat(di dalam perulangan pertama) sebanyak panjang matrik untuk menghitung nilai error yang dihasilkan kemudian menampilkan nilai <script type="math/tex">x_{i}</script> dan error yang dihasilkan pada iterasi ke-k.</li>
+</ol>
+<p>Sehingga source code dari metode Gauss Seidel ialah sebagai berikut.</p>
+<p><strong>Source Code Metode Gauss Seidel</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">matrik</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="s2">&quot;X1&quot;</span><span class="p">],[</span><span class="mi">6</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="s2">&quot;X2&quot;</span><span class="p">],[</span><span class="mi">25</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="s2">&quot;X3&quot;</span><span class="p">],[</span><span class="o">-</span><span class="mi">11</span><span class="p">]],</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],[</span><span class="s2">&quot;X4&quot;</span><span class="p">],[</span><span class="mi">15</span><span class="p">]],</span> 
+<span class="p">]</span>
+<span class="n">true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Penyelesaiaan Sistem Persamaan Linear Dari&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">matrik</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Menggunakan Metode Gauss Seidel&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan banyak iterasi : &quot;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE GAUSS SEIDEL -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+        <span class="n">Xi</span><span class="o">=</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">sum</span><span class="o">=</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">i</span> <span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="nb">sum</span><span class="o">=</span><span class="nb">sum</span><span class="o">-</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">matrik</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">sum</span><span class="o">/</span><span class="n">matrik</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;iterasi </span><span class="si">{</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;|Xi&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;|errorXi&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrik</span><span class="p">)):</span>
+        <span class="n">ea</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">matrik</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">true</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="o">/</span><span class="n">true</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;|</span><span class="si">%.10f</span><span class="s2">|&quot;</span><span class="o">%</span><span class="n">matrik</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.10f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ea</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;=======================================================&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Dan hasil ouput dari source code tersebut ialah sebagai berikut.</p>
+<div class="codehilite"><pre><span></span><code>Penyelesaiaan Sistem Persamaan Linear Dari
+[[10, -1, 2, 0], [&#39;X1&#39;], [6]]
+[[-1, 11, -1, 3], [&#39;X2&#39;], [25]]
+[[2, -1, 10, -1], [&#39;X3&#39;], [-11]]
+[[0, 3, -1, 8], [&#39;X4&#39;], [15]]
+Menggunakan Metode Gauss Seidel
+Masukkan banyak iterasi : 5
+=======================================================
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;- METODE GAUSS SEIDEL -&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+=======================================================
+iterasi 1    |Xi             |errorXi
+X1       |0.6000000000|      40.0000000000
+X2       |2.3272727273|      16.3636363636
+X3       |-0.9872727273|     1.2727272727
+X4       |0.8788636364|      12.1136363636
+iterasi 2    |Xi             |errorXi
+X1       |1.0301818182|      3.0181818182
+X2       |2.0369380165|      1.8469008264
+X3       |-1.0144561983|     1.4456198347
+X4       |0.9843412190|      1.5658780992
+iterasi 3    |Xi             |errorXi
+X1       |1.0065850413|      0.6585041322
+X2       |2.0035550169|      0.1777508452
+X3       |-1.0025273847|     0.2527384673
+X4       |0.9983509456|      0.1649054423
+iterasi 4    |Xi             |errorXi
+X1       |1.0008609786|      0.0860978625
+X2       |2.0002982507|      0.0149125328
+X3       |-1.0003072761|     0.0307276102
+X4       |0.9998497465|      0.0150253509
+iterasi 5    |Xi             |errorXi
+X1       |1.0000912803|      0.0091280286
+X2       |2.0000213422|      0.0010671123
+X3       |-1.0000311472|     0.0031147183
+X4       |0.9999881033|      0.0011896740
+=======================================================
+</code></pre></div>
+
+<h3 id="referensi">Referensi<a class="headerlink" href="#referensi" title="Permanent link">&para;</a></h3>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://id.m.wikipedia.org/wiki/Sistem_persamaan_linear&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>https://www.slideshare.net/KhannalPakinde/makalah-metode-numerik-sistem-persamaan-linear&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2019 peaceiris
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/peaceiris" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/piris314en" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
